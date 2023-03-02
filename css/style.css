@@ -443,6 +443,119 @@ footer h3:nth-of-type(2){
 
 /*------------------------------------------*/
 
+	section.container-skills{
+
+		padding: 2% 2%;
+	}
+
+	section.container-skills .container-skills-img{
+
+		width: 60px;
+		height: 60px;
+		padding: 0 2%;
+		background-size: cover;
+		margin: 0 auto;
+	}
+
+	section.container-skills h3{
+
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	section.container-skills .container-skills-wraper{
+
+		width: 70%;
+		height: 100%;
+		position: relative;
+		margin: 0 auto;
+		padding: 0 2%;
+		line-height: 20px;
+		text-align: center;
+	}
+
+	.container-skills-wraper p{
+
+		display: inline-block;
+		padding: 2px;
+		margin: 5px;
+		border: 2px solid #ffdf2b;
+	}
+
+/*------------------------------------------*/
+
+	.line-skills{
+
+		width: 70%;
+		max-width: 700px;
+		padding: 0 2%;
+		height: 2px;
+		background-color: #ccc;
+		margin: 0 auto;
+	}
+
+/*------------------------------------------*/
+
+	section.pos-skills{
+
+		padding: 3% 2%;
+		width: 100%;
+		max-height: 100px;
+		background-color: black;
+		color: white;
+		text-align: center;
+
+	}
+
+	section.pos-skills a{
+
+		color: #ffdf2b;
+	}
+
+/*------------------------------------------*/
+
+	section.container-danki{
+
+		padding: 2% 2%;
+		text-align: center;
+	}
+
+	.container-danki-img{
+
+		width: 100px;
+		height: 50px;
+		border-radius: 10px;
+		background-image: url('../imagens/dankiimg.png');
+		margin: 0 auto;
+
+	}
+
+	.container-img{
+
+		max-width: 100px;
+		margin: 0 auto;
+	}
+
+	.container-danki p{
+
+		margin: 0 auto;
+		max-width: 500px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.container-danki-img2{
+
+		width: 100%;
+		max-width: 400px;
+		height: 320px;
+		background-image: url('../imagens/coding.png');
+		background-size: cover;
+		margin: 0 auto;
+	}
+
+/*------------------------------------------*/
+
 @media screen and (max-width: 1100px){
 
 section.perfil-container{
@@ -634,6 +747,27 @@ section.contato-div .contato-div-form{
 	footer h3:nth-of-type(2){
 
 		float: none;
+	}
+}
+
+/*------------------------------------------*/
+
+@media screen and (max-width: 660px){
+
+	.container-skills{
+
+		margin-top: 15px;
+	}
+
+	.pos-skills{
+
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.container-danki-img2{
+
+		margin-bottom: 10px;
 	}
 }
 
