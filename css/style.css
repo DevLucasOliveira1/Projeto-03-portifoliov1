@@ -1163,7 +1163,7 @@ section.contato-div .contato-div-form{
 
 
 	section.perfil-container{
-		height: 900px;
+		height: 900px !important;
 	}
 }
 
