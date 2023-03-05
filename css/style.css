@@ -1159,14 +1159,21 @@ section.contato-div .contato-div-form{
 
 /* ANDROID */
 
-@media screen and (width: 414px), and (min-height: 800px){
+@media screen and (width: 424px), and (min-height: 800px){
 
 
 	section.perfil-container{
-		height: 1500px !important;
+		height: 850px !important;
 	}
 }
 
+@media screen and (max-width: 643px), and (min-height: 800px){
+
+
+	section.perfil-container{
+		height: 700px !important;
+	}
+}
 
 @media screen and (max-width: 571px), and (min-height: 751px){
 
