@@ -177,6 +177,7 @@ section.banner{
 
 button{
 
+
 	width: 40px;
 	height: 40px;
 	display: inline-block;
@@ -204,7 +205,7 @@ button img{
 .redes-sociais-text{
 
 	cursor: pointer;
-	width: 200px;
+	width: 205px;
 	height: 40px;
 	float: left;
 	position: relative;
@@ -249,9 +250,16 @@ button img{
 
 .linkedin-box{
 
+	display: flex;
 	position: absolute;
 	left: 0;
 	top: 405px;
+	
+}
+
+.linkedin{
+	position: relative;
+	left: 5px;
 }
 
 /*------------------------------------------*/
@@ -1082,7 +1090,8 @@ section.contato-div .contato-div-form{
 
 	#slider-id span{
 
-		margin: 0 15px;
+		margin: 0 13px;
+
 	}
 }
 
