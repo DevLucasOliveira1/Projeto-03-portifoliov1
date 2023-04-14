@@ -4,6 +4,8 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto Condensed', sans-serif;
+	scrollbar-width: auto;
+  	scrollbar-color: #ffdf2b #dddddd;
 
 }
 
@@ -42,15 +44,16 @@ header{
 
 	width: 150px;
 	height: 80px;
+	left: 10px;
 	position: relative;
 	float: left;
 }
 
-.header-img > img{
+.header-img a > img{
 
 	max-width: 150px;
-	margin-top: -35px;
-	position: absolute;
+	margin-top: 15px;
+	
 }
 
 header nav.desktop{
@@ -67,9 +70,24 @@ nav.desktop ul li{
 	float: left;
 	padding: 30px 30px;
 	list-style: none;
+	position: relative;
 
 }
 
+nav ul li span{
+
+	position: absolute;
+	height: 2px;
+	width: 0px;
+	top: 50px;
+	border-radius: 40px;
+	transition: 1s;
+	background-color: #ffdf2b;
+}
+
+li  a:hover > span {
+	width: 100px;
+}
 
 header nav.desktop a{
 
@@ -108,6 +126,7 @@ nav.mobile li{
 
 	font-size: 20px;
 	padding: 20px 0;
+	position: relative;
 
 }
 
@@ -116,6 +135,10 @@ nav.mobile li a{
 	color: white;
 	text-decoration: none;
 
+}
+
+nav.mobile ul li span{
+	top: 45px;
 }
 
 /*-------------------------------------------------------*/
@@ -306,7 +329,6 @@ section.perfil-container{
 
 	min-width: 350px;
 	height: 400px;
-	background-color: yellow;
 	text-align: center;
 	background-image: url('../imagens/imgperfil/imgperfil2.png');
 	background-size: cover;	
@@ -334,29 +356,44 @@ section.servicos-div{
 	background-color: black;
 	border-bottom: 2px solid white;
 	border-top: 2px solid white;
-	padding: 40px 0;
-	text-align: center;
-	position: relative;
-	top: 0;
-	left: 0;
+	padding: 0 auto;
+
+
+
 }
 
-section.servicos-div img{
+section.servicos-div > .container{
 
+	display: flex;
 	position: relative;
+
+}
+
+section.servicos-div .container .img-single{
+
+	display: inline-block;
+	text-align: center;
+	padding: 20px 2%;
+	margin: 0 auto;
+	width: 100%;
+}
+
+section.servicos-div .container .img-single img{
 	max-width: 55px;
-	margin: 0 5%;
+	display: inline-block;
+	margin: 0 auto;
 	opacity: 50%;
+
 }
 
 section.servicos-div h3{
-
-	color: white;
-	margin-top: -20px;
-	margin-bottom: 10px;
 	text-align: center;
-	
+	color: white;
+	padding-top: 15px;
 }
+
+
+
 /*------------------------------------------*/
 
 	/* AQUI COMEÇA A ABA DE CONTATO */
@@ -365,11 +402,13 @@ section.contato-div{
 
 	width: 100%;
 	height: 700px;
-	background-image: url('../imagens/imgcontato.jpg');
+	background-image: url('../imagens/imgcontato/imgcontato.jpg');
+	background-attachment: fixed;
 	background-size: cover;
 	border-bottom: 2px solid white;
 	background-repeat: no-repeat;
 	background-position: center;
+	position: relative;
 
 }
 
@@ -379,11 +418,30 @@ section.contato-div .contato-div-form{
 	height: 500px;
 	background-color: rgba(0, 0, 0, 0.5);
 	margin: 0 auto;
-	padding: 75px 2%;
+	padding: 25px 2%;
 	position: relative;
 	top: -20%;
 	transform: translateY(20%);
 	border: 1px solid #ccc;
+	border-radius: 20px;
+
+}
+
+section.contato-div > .center{
+	position: relative;
+	z-index: 2;
+}
+
+
+section.contato-div > .contato-overlay{
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(20, 20, 20, 0.6);
 }
 
 section.contato-div .contato-div-form h2{
@@ -391,6 +449,7 @@ section.contato-div .contato-div-form h2{
 	color: white;
 	text-align: center;
 	margin-bottom: 30px;
+
 }
 
 form input[type=text]{
@@ -398,10 +457,33 @@ form input[type=text]{
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border: 1px solid #ccc;
 	outline: none;
 	padding: 0 2%;
+	color: black;
+}
+
+form input[type=email]{
+
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	outline: none;
+	padding: 0 2%;
+}
+
+form textarea{
+
+	width: 100%;
+	height: 100px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	outline: none;
+	padding: 5px 2%;
+	resize: none;
 }
 
 form input[type=submit]{
@@ -429,6 +511,69 @@ form input[type=submit]:hover{
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+/* ABA CONTATO-CLICK */
+
+.contato-click{
+
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+}
+
+.contato-click-form{
+
+	max-width: 450px;
+	min-width: 300px;
+	height: 500px;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 0 auto;
+	padding: 25px 2%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid #ccc;
+	border-radius: 20px;
+}
+
+.contato-click-form img{
+
+	max-width: 100px;
+	position: relative;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.contato-click-form h2{
+
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+
+}
+
+.close-contato{
+
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);	
+	border-radius: 50px;
+	padding: 11px 15px;
+	color: #ffdf2b;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	border: 1px solid #ccc;
+	font-size: 15px;
+}
+
 
 /*------------------------------------------*/
 
@@ -478,6 +623,50 @@ footer h3:nth-of-type(2){
 		text-align: center;
 	}
 
+	section.container-skills .skills-box{
+		width: 76%;
+		margin: 0 auto;
+		padding: 20px 0px;
+		position: relative;
+		flex-wrap: wrap;
+		display: flex;
+	}
+
+	.skills-box .skills-single{
+
+		width: 49%;
+		height: 25px;
+		border-radius: 20px;
+		background-color: rgba(220, 220, 220, 1.0);
+		position: relative;
+		margin-top: 25px;
+		margin-left: 5px;
+
+	}
+
+	.skills-single p{
+
+		position: absolute;
+		top: -20px;
+		left: 10px;
+
+	}
+
+	.skills-single .skills-single-cor{
+		width: 0;
+		background-color: #ffdf2d;
+		height: 25px;
+		left: 40px;
+		border-radius: 20px;
+		
+	}
+
+	.skills-single-cor span{
+		position: relative;
+		left: 10px;
+		top: 3.5px;
+	}
+
 	section.container-skills .container-skills-wraper{
 
 		width: 70%;
@@ -492,8 +681,9 @@ footer h3:nth-of-type(2){
 	.container-skills-wraper p{
 
 		display: inline-block;
-		padding: 2px;
+		padding: 4px;
 		margin: 5px;
+		border-radius: 5px;
 		border: 2px solid #ffdf2b;
 	}
 
@@ -503,8 +693,8 @@ footer h3:nth-of-type(2){
 
 	.line-skills{
 
-		width: 70%;
-		max-width: 700px;
+		width: 75%;
+		max-width: 1000px;
 		padding: 0 2%;
 		height: 2px;
 		background-color: #ccc;
@@ -517,19 +707,14 @@ footer h3:nth-of-type(2){
 
 	section.pos-skills{
 
-		padding: 3% 2%;
+		padding: 1px 2%;
 		width: 100%;
-		max-height: 100px;
 		background-color: black;
 		color: white;
 		text-align: center;
 
 	}
 
-	section.pos-skills a{
-
-		color: #ffdf2b;
-	}
 
 /*------------------------------------------*/
 
@@ -546,7 +731,7 @@ footer h3:nth-of-type(2){
 		width: 100px;
 		height: 50px;
 		border-radius: 10px;
-		background-image: url('../imagens/dankiimg.png');
+		background-image: url('../imagens/imgskills/dankiimg.png');
 		margin: 0 auto;
 
 	}
@@ -570,7 +755,7 @@ footer h3:nth-of-type(2){
 		width: 100%;
 		max-width: 400px;
 		height: 320px;
-		background-image: url('../imagens/coding.png');
+		background-image: url('../imagens/imgskills/coding.png');
 		background-size: cover;
 		margin: 0 auto;
 	}
@@ -791,6 +976,64 @@ footer h3:nth-of-type(2){
 
 /*------------------------------------------*/
 
+	/* ESTILIZAÇÃO DOS SLIDES */
+
+	/* SLIDE 4 */
+
+	.slider4{
+
+		position: relative;
+		width: 100%;
+		max-width: 1200px;
+		height: 80%;
+		max-height: 700px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
+	.slider4 h3{
+
+		position: absolute;
+	}
+
+	.slider4 img{
+
+		display: none;
+		position: absolute;
+		max-width: 100%;
+		max-height: 100%;
+		top: 0px;
+		left: 50%;
+		transform: translate(-50%, 0);
+		-ms-transform: translate(-50%, 0);
+		border: 1px solid black;
+	}
+
+	.bullets-nav4{
+
+		position: absolute;
+		left: 50%;
+		bottom: 10px;
+		z-index: 10;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+
+	}
+
+	.bullets-nav4 span{
+
+		width: 16px;
+		height: 16px;
+		float: left;
+		border-radius: 16px;
+		background-color: #ffdf2b;	
+		cursor: pointer;
+		margin: 0 20px;
+	}
+		
+
+/*------------------------------------------*/
+
 	/* ADICIONANDO RESPONSIVIDADE */
 
 	/* AREA DE PERFIL */
@@ -902,6 +1145,13 @@ footer h3:nth-of-type(2){
 
 	}
 
+	/* ESTILIZANDO ABA SKILLS */
+
+	section.container-skills .skills-single{
+		width: 100%;
+
+	}
+
 /*------------------------------------------*/
 
 	/*  RESPONSIVO / ABA DE PERFIL */
@@ -964,21 +1214,7 @@ footer h3:nth-of-type(2){
 
 	/* APLICANDO RESPONSIVIDADE A ABA DE SERVIÇOS */
 
-	section.servicos-div{
 
-
-	padding: 40px 2%;
-	
-}
-
-	section.servicos-div img{
-
-
-	width: 10%;
-	max-width: 60px;
-	margin: 0 2%;
-	margin-top: 5px;
-}
 
 /*------------------------------------------*/
 
@@ -1047,7 +1283,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (max-width: 1030px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 65%;
 
@@ -1057,7 +1293,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (max-width: 790px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 50%;
 
@@ -1067,7 +1303,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (max-width: 700px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		max-width: 1000px;
 		height: 40%;
@@ -1114,7 +1350,7 @@ section.contato-div .contato-div-form{
 		
 	}
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 30%;
 	}
@@ -1141,7 +1377,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (width: 800px), and (min-height: 1280px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 35%;
 	}
@@ -1149,7 +1385,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (width: 834px), and (min-height: 1194px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 40%;
 	}
@@ -1157,7 +1393,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (width: 820px), and (min-height: 1180px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 40%;
 	}
@@ -1165,7 +1401,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (width: 768px), and (min-height: 1024px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 45%;
 	}
@@ -1173,7 +1409,7 @@ section.contato-div .contato-div-form{
 
 @media screen and (width: 884px), and (min-height: 1104px){
 
-	.slider1, .slider2, .slider3{
+	.slider1, .slider2, .slider3, .slider4{
 
 		height: 45%;
 	}
@@ -1200,3 +1436,4 @@ section.contato-div .contato-div-form{
 }
 
 /*--------------------------- testes -----------------------------*/
+

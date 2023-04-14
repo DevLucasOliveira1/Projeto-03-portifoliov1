@@ -185,3 +185,62 @@ $(function(){ 	// APLICANDO AS FUNÇÕES DO SLIDE 3
 		}
 
 })
+
+/*------------------------------------------------------------------*/
+
+$(function(){ 	// APLICANDO AS FUNÇÕES DO SLIDE 4
+
+	var indiceAtual = 0;
+	var indiceMaximo = $('.slider4 img').length; 
+	var delay = 5000;
+
+	initSlider();
+
+	cliqueSlider();
+
+		function initSlider(){
+			for(var i = 0; i < indiceMaximo; i++){
+				if(i == 0){
+					$('.bullets-nav4').append('<span style="scale:1.2;"></span>')
+				}else{
+					$('.bullets-nav4').append('<span></span>')
+				}
+			}
+
+			$('.slider4 img').eq(0).fadeIn();
+			setInterval(function(){
+				alternarSlider();
+			},delay);
+		}
+
+		function cliqueSlider (){
+			$('.bullets-nav4 span').click(function(){
+				$('.slider4 img').eq(indiceAtual).stop().fadeOut(2000);
+				indiceAtual = $(this).index();
+				$('.slider4 img').eq(indiceAtual).stop().fadeIn(2000);
+				$('.bullets-nav4 span').css('scale','1');
+				$(this).css('scale','1.2');
+			})
+		}
+
+		function alternarSlider(){
+			$('.slider4 img').eq(indiceAtual).stop().fadeOut(2000);
+			indiceAtual+=1;
+			if(indiceAtual == indiceMaximo)
+				indiceAtual = 0;
+			$('.bullets-nav4 span').css('scale','1');
+			$('.bullets-nav4 span').eq(indiceAtual).css('scale','1.2');
+			$('.slider4 img').eq(indiceAtual).stop().fadeIn(2000);
+
+		}
+
+})
+
+
+/*------------------------------------------------------------------*/
+
+$(document).ready(function(){  // Mascara de formulário
+
+  $('.telefone-contato').mask('(00) 0 0000-0000');
+
+});
